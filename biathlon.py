@@ -135,8 +135,8 @@ def update():
                 cal.add_component(broadcast.to_ical_event())
             except KeyError as e:
                 print(
-                    f"Failed to add event for '{race["Description"]}' "
-                    f"(ID={race["RaceId"]}). {e}"
+                    "Failed to add event for " + race["Description"] +
+                    "(ID=" + race["RaceId"] + "). " + e
                 )
 
     f = open("calendar.ics", "bw")
@@ -146,3 +146,8 @@ def update():
 
 if __name__ == "__main__":
     update()
+
+    log = open("logfile.log", "w")
+    log.write(f"biathlon.py ran at {dt.datetime.now().isoformat()}\n")
+    log.close()
+
