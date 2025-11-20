@@ -92,15 +92,12 @@ class Broadcast:
         event = ical.Event()
 
         event.add("dtstamp", ical.vDatetime(self.start_time))
-        event.add(
-            "uid",
-            dt.datetime.now().isoformat() + f"-{self.race_id}@sakerattminnas"
-        )
+        event.add("uid", self.race_id)
         event.add("dtstart", ical.vDatetime(self.start_time))
         event.add("dtend", ical.vDatetime(self.end_time))
 
         event.add("summary", self.competition_type)
-        event.add("description", f"{self.place}.")
+        event.add("description", self.place)
 
         return event
 
@@ -119,11 +116,11 @@ def update():
     """Retrieve biathlon events and overwrite the calendar.ics
        file with icalendar events based on them.
     """
-    events = br.events("2526", level=br.consts.LevelType.BMW_IBU_WC)
-
     cal = ical.Calendar()
-    cal.add("prodid", "sakerattminnas, " + dt.datetime.now().isoformat())
-    cal.add("version", "0.3")
+    cal.add("prodid", "sakerattminnas, " + dt.datetime.now().isoformat()[:22])
+    cal.add("version", "0.4")
+
+    events = br.events("2526", level=br.consts.LevelType.BMW_IBU_WC)
 
     for event in events:
         place = event["Organizer"]
