@@ -12,6 +12,7 @@ def translate_place(place: str) -> str:
     """Return Swedish translation of place name
        if known, else given place name.
     """
+    logger.debug("Translating '{}'.".format(place))
     match place:
         case "Oestersund":
             return "Östersund"
@@ -28,6 +29,7 @@ def translate_place(place: str) -> str:
         case "Oslo Holmenkollen":
             return "Holmenkollen"
         case _:
+            logger.debug("Found no translation for '{}'.".format(place))
             return place
 
 
@@ -40,6 +42,7 @@ def competition_type_from_raceid(id: str) -> str:
     Raises:
         KeyError: Raised when competition type cannot be derived from id.
     """
+    logger.debug("Getting competition type from race_id={}.".format(id))
     match id[-4:]:
         case "SWRL":
             return CompetitionType.RELAY_WOMEN
@@ -70,7 +73,10 @@ def competition_type_from_raceid(id: str) -> str:
         case "SMSI":
             return CompetitionType.SHORT_INDIVIDUAL_MEN
         case _:
-            raise KeyError(f"Could not find competition type for {id}.")
+            logger.error("Could not find competition type for {}.".format(id))
+            raise KeyError(
+                "Could not find competition type for {}.".format(id)
+            )
 
 
 class Broadcast:
@@ -82,7 +88,8 @@ class Broadcast:
         end_time: dt.datetime | None = None,
     ):
         self.start_time = start_time
-        self.place = place
+        self.place_en = place
+        self.place_sv = translate_place(place)
         self.competition_type = competition_type_from_raceid(race_id)
         self.race_id = race_id
         if end_time is None:
@@ -90,6 +97,7 @@ class Broadcast:
                 minutes=DURATIONS[self.competition_type]
             )
         self.end_time = end_time
+        logger.debug("Created Broadcast object {}.".format(self.__repr__()))
 
     def to_ical_event(self) -> ical.Event:
         """Create an icalendar Event from this object."""
@@ -101,19 +109,17 @@ class Broadcast:
         event.add("dtend", ical.vDatetime(self.end_time))
 
         event.add("summary", self.competition_type)
-        event.add("description", self.place)
+        event.add("description", self.place_sv)
 
         return event
 
     def __str__(self):
         res = self.competition_type
-        res += ", " + self.start_time.isoformat(sep=" ")[:-3]
-        res += "-" + self.end_time.isoformat().split("T")[1][:-3]
-        res += f" ({self.place})"
+        res += " - " + self.start_time.strftime("%d %b")
         return res
 
     def __repr__(self):
-        return self.__str__()
+        return self.race_id + "-" + self.start_time.strftime("%Y%m%dT%H%M") + "-" + self.place_en.upper()
 
 
 def update():
@@ -133,7 +139,7 @@ def update():
             try:
                 broadcast = Broadcast(
                     race_id=race["RaceId"],
-                    place=translate_place(place),
+                    place=place,
                     start_time=dt.datetime.fromisoformat(race["StartTime"]),
                 )
                 cal.add_component(broadcast.to_ical_event())
@@ -151,8 +157,8 @@ def update():
 if __name__ == "__main__":
     try:
         update()
-        logger.info("biathlon.py ran at {}\n".format(dt.datetime.now().isoformat()))
+        logger.info("biathlon.py ran at {}\n".format(
+            dt.datetime.now().isoformat())
+            )
     except Exception as e:
-        logger.debug(e)
-
-
+        logger.error(e)
