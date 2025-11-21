@@ -1,7 +1,11 @@
+import logging
 import datetime as dt
 import icalendar as ical
 import biathlonresults as br
 from constants import CompetitionType, DURATIONS
+
+logger = logging.getLogger(__name__)
+logging.basicConfig(filename="biathlon.log", level=logging.DEBUG)
 
 
 def translate_place(place: str) -> str:
@@ -134,7 +138,7 @@ def update():
                 )
                 cal.add_component(broadcast.to_ical_event())
             except KeyError as e:
-                print(
+                logger.warn(
                     "Failed to add event for " + race["Description"] +
                     "(ID=" + race["RaceId"] + "). " + e
                 )
@@ -145,9 +149,10 @@ def update():
 
 
 if __name__ == "__main__":
-    update()
+    try:
+        update()
+        logger.info("biathlon.py ran at {}\n".format(dt.datetime.now().isoformat()))
+    except Exception as e:
+        logger.debug(e)
 
-    log = open("logfile.log", "w")
-    log.write(f"biathlon.py ran at {dt.datetime.now().isoformat()}\n")
-    log.close()
 
