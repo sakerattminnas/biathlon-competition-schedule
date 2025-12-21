@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Biathlon calendar</title>
+<meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<style>
+     /* Style the button that is used to open and close the collapsible content */
+    .collapsible {
+        cursor: pointer;
+        padding: 1rem;
+        width: 100%;
+        border: none;
+        text-align: left;
+        font-size: large;
+    }
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+    .active, .collapsible:hover {
+        background-color: #ccc;
+    }
+
+    /* Style the collapsible content. Note: hidden by default */
+    .content {
+        padding: 0 2em;
+        display: none;
+        overflow: hidden;
+        background-color: #f1f1f1;
+    }
+
+    .place {
+        font-weight: bold;
+    }
+
+    main {
+        max-width: 35rem;
+        margin: auto;
+    }
+
+    td {
+        padding: 0.5rem;
+    }
+</style>
+<script type="application/json" src="startlists.json"></script>
+<script>
+    function readTextFile(file, callback) {
+        var rawFile = new XMLHttpRequest();
+        rawFile.overrideMimeType("application/json");
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = function() {
+            if (rawFile.readyState === 4 && rawFile.status == "200") {
+                callback(rawFile.responseText);
+            }
+        }
+        rawFile.send(null);
+    }
+
+    function createStartlistTable(data) {
+        table = document.createElement('table');
+
+        for (place in data) {
+            tr = document.createElement('tr');
+            tdPlace = document.createElement('td');
+            tdNation = document.createElement('td');
+            tdFName = document.createElement('td');
+            tdGName = document.createElement('td');
+
+            tdPlace.innerHTML = place;
+            tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nation'];
+            tdFName.innerHTML = data[place]['FamilyName'];
+            tdGName.innerHTML = data[place]['GivenName'];
+
+            tdPlace.className = 'place';
+
+            tr.appendChild(tdPlace);
+            tr.appendChild(tdFName);
+            tr.appendChild(tdGName);
+            tr.appendChild(tdNation);
+            table.appendChild(tr);
+        }
+        return table;
+    }
+
+    readTextFile("startlists.json", function(text){
+        var data = JSON.parse(text);
+
+        main = document.getElementById('main');
+        
+        for (date in data) {
+            fancyDate = date.replace('; ', ' &#x2013; ');
+
+            button = document.createElement('button');
+            content = document.createElement('div');
+
+            button.className = 'collapsible';
+            content.className = 'content';
+
+            button.innerHTML = fancyDate;
+
+            content.appendChild(createStartlistTable(data[date]));
+            main.prepend(content);
+            main.prepend(button);
+        }
+
+        header = document.createElement('h1');
+        header.innerHTML = 'Startlistor';
+        main.prepend(header);
+
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+        }
+    });
+</script>
+</head>
+<body>
+    <main id="main"></main>
+</body>
+</html> 

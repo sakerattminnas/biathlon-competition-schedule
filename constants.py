@@ -32,3 +32,42 @@ DURATIONS = {
     CompetitionType.MASS_START_WOMEN: 45,
     CompetitionType.MASS_START_MEN: 45,
 }
+
+A, B, C, D, E, F, G, H, I, J, K, L, M, N, \
+    O, P, Q, R, S, T, U, V, W, X, Y, Z = (
+        '&#' + str(i) + ';' for i in range(127462, 127462 + 26)
+    )
+
+
+FLAGS = {
+    'AUS': A+U,
+    'AUT': A+T,
+    'BEL': B+E,
+    'BUL': B+G,
+    'CAN': C+A,
+    'CHN': C+N,
+    'CRO': H+R,
+    'CZE': C+Z,
+    'DEN': D+K,
+    'EST': E+E,
+    'FIN': F+I,
+    'FRA': F+R,
+    'GBR': G+B,
+    'GER': D+E,
+    'GRL': G+L,
+    'ITA': I+T,
+    'KAZ': K+Z,
+    'KOR': K+R,
+    'LAT': L+V,
+    'LTU': L+T,
+    'MDA': M+D,
+    'NOR': N+O,
+    'POL': P+L,
+    'ROU': R+O,
+    'SLO': S+I,
+    'SUI': C+H,
+    'SVK': S+K,
+    'SWE': S+E,
+    'UKR': U+A,
+    'USA': U+S,
+}
