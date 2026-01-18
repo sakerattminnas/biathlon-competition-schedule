@@ -86,12 +86,14 @@ class Broadcast:
         place: str,
         start_time: dt.datetime,
         end_time: dt.datetime | None = None,
+        olympics: bool = False,
     ):
         self.start_time = start_time
         self.place_en = place
         self.place_sv = translate_place(place)
         self.competition_type = competition_type_from_raceid(race_id)
         self.race_id = race_id
+        self.olympics = olympics
         if end_time is None:
             end_time = self.start_time + dt.timedelta(
                 minutes=DURATIONS[self.competition_type]
@@ -108,7 +110,10 @@ class Broadcast:
         event.add("dtstart", ical.vDatetime(self.start_time))
         event.add("dtend", ical.vDatetime(self.end_time))
 
-        event.add("summary", self.competition_type)
+        if self.olympics:
+            event.add("summary", f'OS: {self.competition_type}')
+        else:
+            event.add("summary", self.competition_type)
         event.add("description", self.place_sv)
 
         return event
@@ -141,6 +146,7 @@ def update():
                     race_id=race["RaceId"],
                     place=place,
                     start_time=dt.datetime.fromisoformat(race["StartTime"]),
+                    olympics=(event['EventClassificationId'] == 'BTSWRLOG'),
                 )
                 cal.add_component(broadcast.to_ical_event())
             except KeyError as e:
