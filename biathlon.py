@@ -151,7 +151,7 @@ def update():
 
     f = open("calendar.ics", "bw")
     f.write(cal.to_ical())
-    f.close
+    f.close()
 
 
 if __name__ == "__main__":
