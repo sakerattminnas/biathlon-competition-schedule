@@ -146,7 +146,7 @@ def update():
                     race_id=race["RaceId"],
                     place=place,
                     start_time=dt.datetime.fromisoformat(race["StartTime"]),
-                    olympics=(event['EventClassificationId'] == 'BTSWRLOG'),
+                    olympics=event['EventClassificationId'].endswith('OG'),
                 )
                 cal.add_component(broadcast.to_ical_event())
             except KeyError as e:
