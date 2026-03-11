@@ -5,14 +5,13 @@ import biathlonresults as br
 from constants import CompetitionType, DURATIONS
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename="biathlon.log", level=logging.DEBUG)
+logging.basicConfig(filename="biathlon.log", level=logging.INFO)
 
 
 def translate_place(place: str) -> str:
     """Return Swedish translation of place name
        if known, else given place name.
     """
-    logger.debug("Translating '{}'.".format(place))
     match place:
         case "Oestersund":
             return "Östersund"
