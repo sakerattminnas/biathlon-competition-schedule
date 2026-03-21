@@ -1,81 +1,9 @@
-import logging
 import datetime as dt
 import icalendar as ical
 import biathlonresults as br
-from constants import CompetitionType, DURATIONS
 
-logger = logging.getLogger(__name__)
-logging.basicConfig(filename="biathlon.log", level=logging.INFO)
-
-
-def translate_place(place: str) -> str:
-    """Return Swedish translation of place name
-       if known, else given place name.
-    """
-    match place:
-        case "Oestersund":
-            return "Östersund"
-        case "Annecy-Le Grand Bornand":
-            return "Annecy"
-        case "Nove Mesto na Morave":
-            return "Nové Město na Moravě"
-        case "Antholz-Anterselva":
-            return "Antholz"
-        case "Kontiolahti":
-            return "Kontiolax"
-        case "Otepaa":
-            return "Otepää"
-        case "Oslo Holmenkollen":
-            return "Holmenkollen"
-        case _:
-            logger.debug("Found no translation for '{}'.".format(place))
-            return place
-
-
-def competition_type_from_raceid(id: str) -> str:
-    """Return the correct CompetitionType based on the RaceId.
-
-    Args:
-        id (str): RaceId from biathlonresults API.
-
-    Raises:
-        KeyError: Raised when competition type cannot be derived from id.
-    """
-    logger.debug("Getting competition type from race_id={}.".format(id))
-    match id[-4:]:
-        case "SWRL":
-            return CompetitionType.RELAY_WOMEN
-        case "SMRL":
-            return CompetitionType.RELAY_MEN
-        case "MXSR":
-            return CompetitionType.SINGLE_MIXED_RELAY
-        case "MXRL":
-            return CompetitionType.MIXED_RELAY
-        case "SWIN":
-            return CompetitionType.INIVIDUAL_WOMEN
-        case "SMIN":
-            return CompetitionType.INIVIDUAL_MEN
-        case "SWSP":
-            return CompetitionType.SPRINT_WOMEN
-        case "SMSP":
-            return CompetitionType.SPRINT_MEN
-        case "SWPU":
-            return CompetitionType.PURSUIT_WOMEN
-        case "SMPU":
-            return CompetitionType.PURSUIT_MEN
-        case "SWMS":
-            return CompetitionType.MASS_START_WOMEN
-        case "SMMS":
-            return CompetitionType.MASS_START_MEN
-        case "SWSI":
-            return CompetitionType.SHORT_INDIVIDUAL_WOMEN
-        case "SMSI":
-            return CompetitionType.SHORT_INDIVIDUAL_MEN
-        case _:
-            logger.error("Could not find competition type for {}.".format(id))
-            raise KeyError(
-                "Could not find competition type for {}.".format(id)
-            )
+from util import (logger, DURATIONS, translate_place,
+                  competition_type_from_race_id)
 
 
 class Broadcast:
@@ -90,7 +18,7 @@ class Broadcast:
         self.start_time = start_time
         self.place_en = place
         self.place_sv = translate_place(place)
-        self.competition_type = competition_type_from_raceid(race_id)
+        self.competition_type = competition_type_from_race_id(race_id)
         self.race_id = race_id
         self.olympics = olympics
         if end_time is None:
@@ -134,24 +62,31 @@ def update():
     cal.add("prodid", "sakerattminnas, " + dt.datetime.now().isoformat()[:22])
     cal.add("version", "0.4")
 
-    events = br.events("2526", level=br.consts.LevelType.BMW_IBU_WC)
+    date = dt.date.today()
+    if date.month > 7:
+        season = str(date.year)[-2:] + str(date.year + 1)[-2:]
+    else:
+        season = str(date.year - 1)[-2:] + str(date.year)[-2:]
+
+    events = br.events(season, level=br.consts.LevelType.BMW_IBU_WC)
 
     for event in events:
         place = event["Organizer"]
-        id = event["EventId"]
-        for race in br.competitions(id):
+        event_id = event["EventId"]
+        for race in br.competitions(event_id):
+            race_id = race["RaceId"]
             try:
                 broadcast = Broadcast(
-                    race_id=race["RaceId"],
+                    race_id=race_id,
                     place=place,
                     start_time=dt.datetime.fromisoformat(race["StartTime"]),
                     olympics=event['EventClassificationId'].endswith('OG'),
                 )
                 cal.add_component(broadcast.to_ical_event())
-            except KeyError as e:
-                logger.warn(
+            except KeyError as ke:
+                logger.warning(
                     "Failed to add event for " + race["Description"] +
-                    "(ID=" + race["RaceId"] + "). " + e
+                    "(ID=" + race["RaceId"] + f"). {ke}"
                 )
 
     f = open("calendar.ics", "bw")
