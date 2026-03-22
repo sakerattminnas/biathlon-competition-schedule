@@ -1,6 +1,7 @@
 import datetime as dt
-import icalendar as ical
+
 import biathlonresults as br
+import icalendar as ical
 
 from api_to_json import update_results
 from util import (logger, DURATIONS, translate_place,
@@ -9,12 +10,12 @@ from util import (logger, DURATIONS, translate_place,
 
 class Broadcast:
     def __init__(
-        self,
-        race_id: str,
-        place: str,
-        start_time: dt.datetime,
-        end_time: dt.datetime | None = None,
-        olympics: bool = False,
+            self,
+            race_id: str,
+            place: str,
+            start_time: dt.datetime,
+            end_time: dt.datetime | None = None,
+            olympics: bool = False,
     ):
         self.start_time = start_time
         self.place_en = place
@@ -102,6 +103,6 @@ if __name__ == "__main__":
         update()
         logger.info("biathlon.py ran at {}\n".format(
             dt.datetime.now().isoformat())
-            )
+        )
     except Exception as e:
         logger.error(e)

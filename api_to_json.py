@@ -1,12 +1,15 @@
+import datetime as dt
+import json
 import os
 import re
-import json
 import time
-import datetime as dt
-import biathlonresults as br
 from operator import itemgetter
+
+import biathlonresults as br
+
 from util import (current_season_id, competition_type_from_race_id,
-                  CompetitionType, date_x_days_ago, FLAGS)
+                  CompetitionType, date_x_days_ago, logger, FLAGS,
+                  RESULT_STATUS)
 
 
 def get_season_from_id(_id: str) -> str:
@@ -212,8 +215,8 @@ def _write_start_lists_to_file(days_ago: int | None = None):
         start_list = get_start_list(race_id)
         if not start_list:
             continue
-        content[f'{_time}; {desc}'] = {'StartList': start_list,
-                                       'Status': status}
+        content[f'{RESULT_STATUS[status]} {_time}; {desc}'] = \
+            {'StartList': start_list, 'Status': status}
     filename = 'json/startlists.json'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     file = open(filename, 'w')
@@ -222,10 +225,13 @@ def _write_start_lists_to_file(days_ago: int | None = None):
 
 def update_results() -> None:
     """Update the races which have non-official results."""
-    races = [race['RaceId'] for race in filter(
+    races = [race for race in filter(
         lambda race: race['ResultStatus'] != 'OFFICIAL', get_races())]
-    for race_id in races:
-        _fetch_results(race_id)
+    for race in races:
+        if race['ResultStatus'] not in ('OFFICIAL', 'PROVISIONAL_STARTLIST'):
+            logger.debug(
+                f'Race {race['RaceId']} has status {race['ResultStatus']}.')
+        _fetch_results(race['RaceId'])
     _write_start_lists_to_file(2)
 
 

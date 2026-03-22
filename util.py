@@ -1,9 +1,10 @@
 import logging
 import datetime as dt
 from pathlib import Path
+from collections import defaultdict
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename=Path('biathlon.log'), level=logging.INFO)
+logging.basicConfig(filename=Path('biathlon.log'), level=logging.DEBUG)
 
 
 def date_x_days_ago(x: int) -> dt.date:
@@ -146,6 +147,7 @@ FLAGS = {
     'AUS': A+U,
     'AUT': A+T,
     'BEL': B+E,
+    'BRA': B+R,  # TODO: Double check
     'BUL': B+G,
     'CAN': C+A,
     'CHN': C+N,
@@ -157,8 +159,10 @@ FLAGS = {
     'FRA': F+R,
     'GBR': G+B,
     'GER': D+E,
+    'GRE': G+R,  # TODO: Double check
     'GRL': G+L,
     'ITA': I+T,
+    'JPN': J+P,  # TODO: Double check
     'KAZ': K+Z,
     'KOR': K+R,
     'LAT': L+V,
@@ -174,3 +178,10 @@ FLAGS = {
     'UKR': U+A,
     'USA': U+S,
 }
+
+
+RESULT_STATUS = defaultdict(lambda _: '&#x1F535')
+RESULT_STATUS.update({
+    'OFFICIAL': '&#x1F7E2',
+    'PROVISIONAL_STARTLIST': '&#x1F534',
+})
