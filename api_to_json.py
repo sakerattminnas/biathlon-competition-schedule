@@ -1,5 +1,4 @@
 import datetime as dt
-import json
 import os
 import re
 import time
@@ -7,6 +6,7 @@ from operator import itemgetter
 
 import biathlonresults as br
 
+import json
 from util import (current_season_id, competition_type_from_race_id,
                   CompetitionType, date_x_days_ago, logger, FLAGS,
                   RESULT_STATUS, is_relay)
@@ -224,7 +224,8 @@ def _write_start_lists_to_file(days_ago: int | None = None):
                                          >= dt.timedelta(0)), races))
     for race_id, race_time, status in races:
         desc = competition_type_from_race_id(race_id)
-        _time = dt.datetime.fromisoformat(race_time).isoformat(
+        _time = dt.datetime.fromisoformat(
+            race_time).astimezone(tz=None).isoformat(
             sep=' ', timespec='minutes')[:16]
         start_list = get_start_list(race_id)
         if not start_list:
