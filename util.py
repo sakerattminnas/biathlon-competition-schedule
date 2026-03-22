@@ -4,7 +4,7 @@ from pathlib import Path
 from collections import defaultdict
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(filename=Path('biathlon.log'), level=logging.DEBUG)
+logging.basicConfig(filename=Path('biathlon.log'), level=logging.INFO)
 
 
 def date_x_days_ago(x: int) -> dt.date:

@@ -76,6 +76,7 @@
                 return createStartlistTableRelay(table, data);
             } else {
                 for (place in data) {
+                    if (place == 'RaceId') {continue;}
                     tr = document.createElement('tr');
 
                     tdPlace = document.createElement('td');
@@ -106,6 +107,7 @@
 
         function createStartlistTableRelay(_table, data) {
             for (place in data) {
+                if (place == 'RaceId') {continue;}
                 let contentTable = document.createElement('table');
 
                 _button = document.createElement('button');

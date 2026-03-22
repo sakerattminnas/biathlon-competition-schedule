@@ -125,7 +125,8 @@ def get_races(event_id: str | None = None,
         filename = get_race_filename(event_id)
         file = open(filename, 'r')
         content = json.load(file)
-        file.close()
+        for race in content:
+            race.update({'EventId': event_id})
         return content
     except FileNotFoundError:
         _fetch_races(event_id)
@@ -142,7 +143,7 @@ def _fetch_results(race_id: str) -> None:
     json.dump(res, file)
 
 
-def get_results(race_id: str) -> list[dict]:
+def get_results(race_id: str) -> dict:
     """Get results from json file. If the json-file for the results does not
      exist, fetch results, then get them from the created file.
 
@@ -155,6 +156,8 @@ def get_results(race_id: str) -> list[dict]:
     try:
         file = open(filename, 'r')
         content = json.load(file)
+        for result in content['Results']:
+            result.update({'RaceId': race_id})
         return content
     except FileNotFoundError:
         _fetch_results(race_id)
@@ -177,18 +180,18 @@ def get_start_list(race_id: str) -> dict[int, dict]:
         teams = [r for r in results if r['IsTeam']]
         athletes = [r for r in results if not r['IsTeam']]
         for team in teams:
-            start_order = int(team['Bib'])
+            team_start_order = int(team['Bib'])
             nation = team['Nat']
             participants = [athlete for athlete in athletes
-                            if athlete['Bib'] == str(start_order)]
+                            if athlete['Bib'] == str(team_start_order)]
             if not participants:
                 continue
-            start_list[start_order] = {'Nat': nation, 'Flag': FLAGS[nation]}
+            start_list[team_start_order] = {'Nat': nation, 'Flag': FLAGS[nation]}
             for participant in participants:
-                start_list[start_order].update({
+                start_list[team_start_order].update({
                     participant['Leg']:
                         dict(zip(info, itemgetter(*info)(participant)))})
-
+        start_list.update({'RaceId': race_id})
         return start_list
     info += ['BibColor', 'Bib', 'Nat']
     if comp_type in (CompetitionType.PURSUIT_WOMEN,
@@ -196,12 +199,13 @@ def get_start_list(race_id: str) -> dict[int, dict]:
         info.append('PursuitStartDistance')
     start_list = {r['StartOrder']: dict(zip(info, itemgetter(*info)(r)))
                   for r in results}
-    for start_order, athlete in start_list.items():
+    for team_start_order, athlete in start_list.items():
         nation = athlete['Nat']
         try:
             athlete.update({'Flag': FLAGS[nation]})
         except KeyError:
             athlete.update({'Flag': '&#127988;'})
+    start_list.update({'RaceId': race_id})
     return start_list
 
 
@@ -243,10 +247,12 @@ def update_results() -> None:
     """Update the races which have non-official results."""
     races = [race for race in filter(
         lambda race: race['ResultStatus'] != 'OFFICIAL', get_races())]
+    events = {race['EventId'] for race in races}
+    for event_id in events:
+        _fetch_races(event_id)
     for race in races:
-        if race['ResultStatus'] not in ('OFFICIAL', 'PROVISIONAL_STARTLIST'):
-            logger.debug(
-                f'Race {race['RaceId']} has status {race['ResultStatus']}.')
+        logger.debug(
+            f'Race {race['RaceId']} has status {race['ResultStatus']}.')
         _fetch_results(race['RaceId'])
     _write_start_lists_to_file(7)
 
