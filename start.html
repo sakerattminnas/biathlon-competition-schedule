@@ -43,6 +43,10 @@
         td {
             padding: 0.5rem;
         }
+
+        .swede {
+            text-decoration: underline blue double;
+        }
     </style>
     <script type="application/json" src="json/startlists.json"></script>
     <script>
@@ -71,7 +75,11 @@
 
                 tdPlace.innerHTML = place;
                 tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
-                tdFName.innerHTML = data[place]['FamilyName'];
+                if (data[place]['Nat'] == 'SWE') {
+                    tdFName.innerHTML = '<span class="swede">' + data[place]['FamilyName'] + '</span>';
+                } else {
+                    tdFName.innerHTML = data[place]['FamilyName'];
+               }
                 tdGName.innerHTML = data[place]['GivenName'];
 
                 tdPlace.className = 'place';
@@ -92,8 +100,6 @@
 
             for (date in data) {
                 fancyDate = date.replace('; ', ' &#x2013; ');
-<!--                fancyDate = date.replace('; ', '&nbsp;&#x2013;&nbsp;');-->
-<!--                fancyDate = fancyDate.replace(' ', '&nbsp;');-->
 
                 let status = data[date]['Status'];
                 console.log(status + ' ' + date);
