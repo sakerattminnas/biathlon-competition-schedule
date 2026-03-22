@@ -36,6 +36,7 @@
 
         .place {
             font-weight: bold;
+            text-align: center;
         }
 
         main {
@@ -49,7 +50,8 @@
         }
 
         .swede {
-            text-decoration: underline blue double;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 0, 0.3);
         }
     </style>
     <script type="application/json" src="json/startlists.json"></script>
@@ -84,13 +86,12 @@
                     tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
                     tdPlace.innerHTML = place;
 
-                    tdPlace.className = 'place';
-
                     if (data[place]['Nat'] == 'SWE') {
-                        tdFName.innerHTML = '<span class="swede">' + data[place]['FamilyName'] + '</span>';
+                        tdPlace.className = 'place swede';
                     } else {
-                        tdFName.innerHTML = data[place]['FamilyName'];
-                   }
+                        tdPlace.className = 'place';
+                    }
+                    tdFName.innerHTML = data[place]['FamilyName'];
                     tdGName.innerHTML = data[place]['GivenName'];
 
                     tr.appendChild(tdPlace);
@@ -120,7 +121,11 @@
                 _tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
                 _tdPlace.innerHTML = place;
 
-                _tdPlace.className = 'place';
+                if (data[place]['Nat'] == 'SWE') {
+                    _tdPlace.className = 'place swede';
+                } else {
+                    _tdPlace.className = 'place';
+                }
 
                 _tr.appendChild(_tdPlace);
                 _tr.appendChild(_tdNation);

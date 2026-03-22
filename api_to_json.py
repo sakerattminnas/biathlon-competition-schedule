@@ -248,7 +248,7 @@ def update_results() -> None:
             logger.debug(
                 f'Race {race['RaceId']} has status {race['ResultStatus']}.')
         _fetch_results(race['RaceId'])
-    _write_start_lists_to_file(2)
+    _write_start_lists_to_file(7)
 
 
 if __name__ == '__main__':
