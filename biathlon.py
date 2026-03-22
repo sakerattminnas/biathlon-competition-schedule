@@ -2,6 +2,7 @@ import datetime as dt
 import icalendar as ical
 import biathlonresults as br
 
+from api_to_json import update_results
 from util import (logger, DURATIONS, translate_place,
                   competition_type_from_race_id)
 
@@ -92,6 +93,8 @@ def update():
     f = open("calendar.ics", "bw")
     f.write(cal.to_ical())
     f.close()
+
+    update_results()
 
 
 if __name__ == "__main__":

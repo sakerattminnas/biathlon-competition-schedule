@@ -6,6 +6,15 @@ logger = logging.getLogger(__name__)
 logging.basicConfig(filename=Path('biathlon.log'), level=logging.INFO)
 
 
+def date_x_days_ago(x: int) -> dt.date:
+    """Return the date exactly x days ago.
+
+    :param x: The number of days to go back.
+    :return: The date x days ago.
+    """
+    return dt.date.today() - dt.timedelta(days=x)
+
+
 def current_season_id() -> str:
     """Return season ID. For example, the season ID
     for the 2025/2026 season is '2526'.
