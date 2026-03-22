@@ -236,5 +236,9 @@ def update_results() -> None:
 
 
 if __name__ == '__main__':
-    update_results()
-    print('done'.upper())
+    try:
+        update_results()
+        logger.info('{} ran at {}\n'.format(__file__.split('\\')[-1],
+                                            dt.datetime.now().isoformat()))
+    except Exception as e:
+        logger.error(e)

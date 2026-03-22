@@ -101,8 +101,7 @@ def update():
 if __name__ == "__main__":
     try:
         update()
-        logger.info("biathlon.py ran at {}\n".format(
-            dt.datetime.now().isoformat())
-        )
+        logger.info("{} ran at {}\n".format(__file__.split('\\')[-1],
+                                            dt.datetime.now().isoformat()))
     except Exception as e:
         logger.error(e)
