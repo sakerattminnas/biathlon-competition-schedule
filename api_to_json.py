@@ -9,7 +9,7 @@ import biathlonresults as br
 
 from util import (current_season_id, competition_type_from_race_id,
                   CompetitionType, date_x_days_ago, logger, FLAGS,
-                  RESULT_STATUS)
+                  RESULT_STATUS, is_relay)
 
 
 def get_season_from_id(_id: str) -> str:
@@ -169,14 +169,28 @@ def get_start_list(race_id: str) -> dict[int, dict]:
     value is information about the athlete that does not reveal the result.
     """
     comp_type = competition_type_from_race_id(race_id)
-    if comp_type in (
-            CompetitionType.SINGLE_MIXED_RELAY, CompetitionType.MIXED_RELAY,
-            CompetitionType.RELAY_WOMEN, CompetitionType.RELAY_MEN):
-        return dict()  # TODO
     race_results = get_results(race_id)
     results = race_results['Results']
-    info = ['IBUId', 'Name', 'ShortName', 'FamilyName',
-            'GivenName', 'Nat', 'Bib', 'BibColor']
+    info = ['IBUId', 'Name', 'ShortName', 'FamilyName', 'GivenName']
+    if is_relay(race_id):
+        start_list = dict()
+        teams = [r for r in results if r['IsTeam']]
+        athletes = [r for r in results if not r['IsTeam']]
+        for team in teams:
+            start_order = int(team['Bib'])
+            nation = team['Nat']
+            participants = [athlete for athlete in athletes
+                            if athlete['Bib'] == str(start_order)]
+            if not participants:
+                continue
+            start_list[start_order] = {'Nat': nation, 'Flag': FLAGS[nation]}
+            for participant in participants:
+                start_list[start_order].update({
+                    participant['Leg']:
+                        dict(zip(info, itemgetter(*info)(participant)))})
+
+        return start_list
+    info += ['BibColor', 'Bib', 'Nat']
     if comp_type in (CompetitionType.PURSUIT_WOMEN,
                      CompetitionType.PURSUIT_MEN):
         info.append('PursuitStartDistance')
@@ -216,7 +230,8 @@ def _write_start_lists_to_file(days_ago: int | None = None):
         if not start_list:
             continue
         content[f'{RESULT_STATUS[status]} {_time}; {desc}'] = \
-            {'StartList': start_list, 'Status': status}
+            {'StartList': start_list, 'Status': status,
+             'Relay': is_relay(race_id)}
     filename = 'json/startlists.json'
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     file = open(filename, 'w')

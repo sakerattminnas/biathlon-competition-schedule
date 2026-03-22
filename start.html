@@ -16,6 +16,10 @@
             font-family: monospace;
         }
 
+        .inner {
+            padding: 0.5em;
+        }
+
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
         .active,
         .collapsible:hover {
@@ -66,31 +70,90 @@
             table = document.createElement('table');
             let data = _data['StartList'];
 
-            for (place in data) {
-                tr = document.createElement('tr');
-                tdPlace = document.createElement('td');
-                tdNation = document.createElement('td');
-                tdFName = document.createElement('td');
-                tdGName = document.createElement('td');
+            if (_data['Relay']) {
+                return createStartlistTableRelay(table, data);
+            } else {
+                for (place in data) {
+                    tr = document.createElement('tr');
 
-                tdPlace.innerHTML = place;
-                tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
-                if (data[place]['Nat'] == 'SWE') {
-                    tdFName.innerHTML = '<span class="swede">' + data[place]['FamilyName'] + '</span>';
-                } else {
-                    tdFName.innerHTML = data[place]['FamilyName'];
-               }
-                tdGName.innerHTML = data[place]['GivenName'];
+                    tdPlace = document.createElement('td');
+                    tdNation = document.createElement('td');
+                    tdFName = document.createElement('td');
+                    tdGName = document.createElement('td');
 
-                tdPlace.className = 'place';
+                    tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
+                    tdPlace.innerHTML = place;
 
-                tr.appendChild(tdPlace);
-                tr.appendChild(tdFName);
-                tr.appendChild(tdGName);
-                tr.appendChild(tdNation);
-                table.appendChild(tr);
+                    tdPlace.className = 'place';
+
+                    if (data[place]['Nat'] == 'SWE') {
+                        tdFName.innerHTML = '<span class="swede">' + data[place]['FamilyName'] + '</span>';
+                    } else {
+                        tdFName.innerHTML = data[place]['FamilyName'];
+                   }
+                    tdGName.innerHTML = data[place]['GivenName'];
+
+                    tr.appendChild(tdPlace);
+                    tr.appendChild(tdFName);
+                    tr.appendChild(tdGName);
+                    tr.appendChild(tdNation);
+                    table.appendChild(tr);
+                }
+                return table;
             }
-            return table;
+        }
+
+        function createStartlistTableRelay(_table, data) {
+            for (place in data) {
+                let contentTable = document.createElement('table');
+
+                _button = document.createElement('button');
+                _content = document.createElement('div');
+
+                _button.className = 'collapsible inner';
+                _content.className = 'content';
+
+                _tr = document.createElement('tr');
+                _tdPlace = document.createElement('td');
+                _tdNation = document.createElement('td');
+
+                _tdNation.innerHTML = data[place]['Flag'] + ' ' + data[place]['Nat'];
+                _tdPlace.innerHTML = place;
+
+                _tdPlace.className = 'place';
+
+                _tr.appendChild(_tdPlace);
+                _tr.appendChild(_tdNation);
+
+                _button.appendChild(_tr);
+
+                for (leg in data[place]) {
+                    if (leg == 'Nat' || leg == 'Flag') {continue;}
+                    let leg_tr = document.createElement('tr');
+
+                    leg_tdPlace = document.createElement('td');
+                    leg_tdFName = document.createElement('td');
+                    leg_tdGName = document.createElement('td');
+
+                    leg_tdPlace.innerHTML = leg;
+                    leg_tdPlace.className = 'place';
+
+                    leg_tdFName.innerHTML = data[place][leg]['FamilyName'];
+                    leg_tdGName.innerHTML = data[place][leg]['GivenName'];
+
+                    leg_tr.appendChild(leg_tdPlace);
+                    leg_tr.appendChild(leg_tdFName);
+                    leg_tr.appendChild(leg_tdGName);
+
+                    contentTable.appendChild(leg_tr);
+                }
+
+                _content.appendChild(contentTable);
+
+                _table.appendChild(_button);
+                _table.appendChild(_content);
+            }
+            return _table;
         }
 
         readTextFile("json/startlists.json", function (text) {

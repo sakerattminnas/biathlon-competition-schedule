@@ -30,6 +30,17 @@ def current_season_id() -> str:
         return str(date.year - 1)[-2:] + str(date.year)[-2:]
 
 
+def is_relay(race_id: str) -> bool:
+    """Return if a race is some kind of relay.
+
+    :param race_id: The race ID.
+    :return: True if the race is a relay, else False.
+    """
+    return competition_type_from_race_id(race_id) in (
+        CompetitionType.SINGLE_MIXED_RELAY, CompetitionType.MIXED_RELAY,
+        CompetitionType.RELAY_WOMEN, CompetitionType.RELAY_MEN)
+
+
 def translate_place(place: str) -> str:
     """Return Swedish translation of place name
        if known, else given place name.
