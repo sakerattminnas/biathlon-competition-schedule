@@ -252,7 +252,7 @@ def update_results() -> None:
         _fetch_races(event_id)
     for race in races:
         logger.debug(
-            f'Race {race['RaceId']} has status {race['ResultStatus']}.')
+            f"Race {race['RaceId']} has status {race['ResultStatus']}.")
         _fetch_results(race['RaceId'])
     _write_start_lists_to_file(7)
 
