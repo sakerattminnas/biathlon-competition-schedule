@@ -191,8 +191,12 @@ FLAGS = {
 }
 
 
-RESULT_STATUS = defaultdict(lambda _: '&#x1F535')
-RESULT_STATUS.update({
+_RESULT_STATUS = {
     'OFFICIAL': '&#x1F7E2',
     'PROVISIONAL_STARTLIST': '&#x1F534',
-})
+}
+
+
+def get_result_status(status: str):
+    return _RESULT_STATUS.get(status, '&#x1F535')
+

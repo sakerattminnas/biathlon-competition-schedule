@@ -9,7 +9,7 @@ import biathlonresults as br
 import json
 from util import (current_season_id, competition_type_from_race_id,
                   CompetitionType, date_x_days_ago, logger, FLAGS,
-                  RESULT_STATUS, is_relay)
+                  get_result_status, is_relay)
 
 
 def get_season_from_id(_id: str) -> str:
@@ -69,7 +69,7 @@ def _fetch_events(season=current_season_id()) -> None:
 
 def get_events(season=current_season_id()) -> list[dict]:
     """Get events from json file. If the json-file for the events does not
-     exist, fetch events, then get them from the created file.
+    exist, fetch events, then get them from the created file.
 
     :param season: The season ID.
     :type season: str
@@ -89,7 +89,11 @@ def _fetch_races(event_id: str) -> None:
     filename = get_race_filename(event_id)
 
     time.sleep(1)
-    races = br.competitions(event_id)
+    try:
+        races = br.competitions(event_id)
+    except Exception as e:
+        logger.error('Error while fetching races:', e)
+        return
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     file = open(filename, 'w')
     json.dump(races, file)
@@ -111,8 +115,9 @@ def get_races(event_id: str | None = None,
     """
     if event_id is None:
         file = open(get_event_filename(season), 'r')
-        events = [event['EventId'] for event in json.load(file)
-                  if event['EventId'] is not None]
+        # events = [event['EventId'] for event in json.load(file)
+        #           if event['EventId'] is not None]
+        events = [event['EventId'] for event in get_events()]
         races = []
         for _id in events:
             try:
@@ -137,7 +142,11 @@ def _fetch_results(race_id: str) -> None:
     """Fetch results from api and save in json file."""
     filename = get_result_filename(race_id)
     time.sleep(1)
-    res = br.results(race_id)
+    try:
+        res = br.results(race_id)
+    except Exception as e:
+        logger.error('Error when fetching results:', e)
+        return
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     file = open(filename, 'w')
     json.dump(res, file)
@@ -234,7 +243,7 @@ def _write_start_lists_to_file(days_ago: int | None = None):
         start_list = get_start_list(race_id)
         if not start_list:
             continue
-        content[f'{RESULT_STATUS[status]} {_time}; {desc}'] = \
+        content[f'{get_result_status(status)} {_time}; {desc}'] = \
             {'StartList': start_list, 'Status': status,
              'Relay': is_relay(race_id)}
     filename = 'json/startlists.json'
@@ -245,19 +254,20 @@ def _write_start_lists_to_file(days_ago: int | None = None):
 
 def update_results() -> None:
     """Update the races which have non-official results."""
-    races = [race for race in filter(
-        lambda race: race['ResultStatus'] != 'OFFICIAL', get_races())]
-    events = {race['EventId'] for race in races}
+    events = {event['EventId'] for event in get_events()}
     for event_id in events:
         _fetch_races(event_id)
+    races = [race for race in filter(
+        lambda race: race['ResultStatus'] != 'OFFICIAL', get_races())]
     for race in races:
         logger.debug(
             f"Race {race['RaceId']} has status {race['ResultStatus']}.")
         _fetch_results(race['RaceId'])
     _write_start_lists_to_file(7)
-
-
+    
+    
 if __name__ == '__main__':
+    # _fetch_events()  # Do at beginning of season, or when events change?
     try:
         update_results()
         logger.info('{} ran at {}\n'.format(__file__.split('\\')[-1],
