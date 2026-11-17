@@ -1,1 +1,352 @@
-{"&#x1F535 2026-11-26 16:15; Individuell start (H)": {"StartList": {"RaceId": "BT2627SWRLCP01SMIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-11-27 16:15; Individuell start (D)": {"StartList": {"RaceId": "BT2627SWRLCP01SWIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-11-28 13:10; Singlemixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP01MXSR"}, "Status": "NONE", "Relay": true}, "&#x1F535 2026-11-28 15:15; Mixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP01MXRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2026-11-29 13:00; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP01SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-11-29 16:15; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP01SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-04 11:25; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP02SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-04 14:15; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP02SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-05 12:15; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP02SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-05 14:30; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP02SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-06 11:30; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCP02SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2026-12-06 14:15; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCP02SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2026-12-10 14:15; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP03SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-11 14:15; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP03SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-12 12:15; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP03SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-12 14:45; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP03SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-13 12:15; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP03SWMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2026-12-13 14:45; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP03SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-02 11:25; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP04SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-02 14:10; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP04SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-03 11:35; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCP04SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-03 14:15; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCP04SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-06 14:15; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCP05SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-07 14:15; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCP05SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-08 14:15; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP05SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-09 14:30; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP05SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-10 12:00; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP05SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-10 14:45; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP05SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-14 14:15; Individuell start (H)": {"StartList": {"RaceId": "BT2627SWRLCP06SMIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-15 14:15; Individuell start (D)": {"StartList": {"RaceId": "BT2627SWRLCP06SWIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-16 11:45; Singlemixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP06MXSR"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-16 14:30; Mixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP06MXRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-17 12:45; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP06SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-17 15:00; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP06SWMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-21 16:30; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP07SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-22 16:30; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP07SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-23 14:45; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP07SWMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-01-23 17:00; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCP07SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-24 14:35; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCP07SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-01-24 17:10; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP07SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-10 16:10; Mixed stafett": {"StartList": {"RaceId": "BT2627SWRLCH__MXRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-02-12 16:30; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCH__SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-13 17:00; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCH__SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-14 16:05; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCH__SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-14 18:30; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCH__SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-16 17:10; Singlemixed stafett": {"StartList": {"RaceId": "BT2627SWRLCH__MXSR"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-02-17 17:10; Individuell start (H)": {"StartList": {"RaceId": "BT2627SWRLCH__SMIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-18 17:10; Individuell start (D)": {"StartList": {"RaceId": "BT2627SWRLCH__SWIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-19 17:30; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCH__SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-02-20 17:30; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCH__SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-02-21 15:45; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCH__SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-02-21 18:10; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCH__SWMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-04 14:45; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP08SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-05 14:10; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP08SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-06 13:45; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP08SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-06 16:00; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP08SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-07 12:45; Stafett (H)": {"StartList": {"RaceId": "BT2627SWRLCP08SMRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-03-07 15:50; Stafett (D)": {"StartList": {"RaceId": "BT2627SWRLCP08SWRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-03-11 16:10; Individuell start (D)": {"StartList": {"RaceId": "BT2627SWRLCP09SWIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-12 16:10; Individuell start (H)": {"StartList": {"RaceId": "BT2627SWRLCP09SMIN"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-13 14:30; Singlemixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP09MXSR"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-03-13 17:10; Mixed stafett": {"StartList": {"RaceId": "BT2627SWRLCP09MXRL"}, "Status": "NONE", "Relay": true}, "&#x1F535 2027-03-14 14:30; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP09SWMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-14 17:10; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP09SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-18 16:30; Sprint (H)": {"StartList": {"RaceId": "BT2627SWRLCP10SMSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-19 16:30; Sprint (D)": {"StartList": {"RaceId": "BT2627SWRLCP10SWSP"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-20 14:45; Jaktstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP10SMPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-20 17:00; Jaktstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP10SWPU"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-21 13:30; Masstart (H)": {"StartList": {"RaceId": "BT2627SWRLCP10SMMS"}, "Status": "NONE", "Relay": false}, "&#x1F535 2027-03-21 16:00; Masstart (D)": {"StartList": {"RaceId": "BT2627SWRLCP10SWMS"}, "Status": "NONE", "Relay": false}}
+{
+  "&#x1F535 2026-11-26 16:15; Individuell start (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP01SMIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-11-27 16:15; Individuell start (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP01SWIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-11-28 13:10; Singlemixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP01MXSR" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2026-11-28 15:15; Mixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP01MXRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2026-11-29 13:00; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP01SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-11-29 16:15; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP01SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-04 11:25; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-04 14:15; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-05 12:15; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-05 14:30; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-06 11:30; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2026-12-06 14:15; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP02SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2026-12-10 14:15; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-11 14:15; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-12 12:15; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-12 14:45; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-13 12:15; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2026-12-13 14:45; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP03SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-02 11:25; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP04SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-02 14:10; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP04SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-03 11:35; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP04SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-03 14:15; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP04SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-06 14:15; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-07 14:15; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-08 14:15; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-09 14:30; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-10 12:00; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-10 14:45; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP05SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-14 14:15; Individuell start (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP06SMIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-15 14:15; Individuell start (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP06SWIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-16 11:45; Singlemixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP06MXSR" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-16 14:30; Mixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP06MXRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-17 12:45; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP06SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-17 15:00; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP06SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-21 16:30; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-22 16:30; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-23 14:45; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-01-23 17:00; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-24 14:35; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-01-24 17:10; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP07SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-10 16:10; Mixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCH__MXRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-02-12 16:30; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-13 17:00; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-14 16:05; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-14 18:30; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-16 17:10; Singlemixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCH__MXSR" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-02-17 17:10; Individuell start (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SMIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-18 17:10; Individuell start (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SWIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-19 17:30; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-02-20 17:30; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-02-21 15:45; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-02-21 18:10; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCH__SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-04 14:45; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-05 14:10; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-06 13:45; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-06 16:00; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-07 12:45; Stafett (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SMRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-03-07 15:50; Stafett (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP08SWRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-03-11 16:10; Individuell start (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP09SWIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-12 16:10; Individuell start (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP09SMIN" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-13 14:30; Singlemixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP09MXSR" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-03-13 17:10; Mixed stafett": {
+    "StartList": { "RaceId": "BT2627SWRLCP09MXRL" },
+    "Status": "NONE",
+    "Relay": true
+  },
+  "&#x1F535 2027-03-14 14:30; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP09SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-14 17:10; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP09SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-18 16:30; Sprint (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SMSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-19 16:30; Sprint (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SWSP" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-20 14:45; Jaktstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SMPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-20 17:00; Jaktstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SWPU" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-21 13:30; Masstart (H)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SMMS" },
+    "Status": "NONE",
+    "Relay": false
+  },
+  "&#x1F535 2027-03-21 16:00; Masstart (D)": {
+    "StartList": { "RaceId": "BT2627SWRLCP10SWMS" },
+    "Status": "NONE",
+    "Relay": false
+  }
+}

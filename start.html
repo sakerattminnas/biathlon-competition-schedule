@@ -168,42 +168,53 @@
 
             main = document.getElementById('main');
 
+            let startListAvailable = false;
             for (date in data) {
                 fancyDate = date.replace('; ', ' &#x2013; ');
 
                 let status = data[date]['Status'];
                 console.log(status + ' ' + date);
 
-                button = document.createElement('button');
-                content = document.createElement('div');
+                if (status != 'NONE') {
+                    startListAvailable = true;
 
-                button.className = 'collapsible';
-                content.className = 'content';
-
-                button.innerHTML = fancyDate;
-
-                content.appendChild(createStartlistTable(data[date]));
-                main.prepend(content);
-                main.prepend(button);
+                    button = document.createElement('button');
+                    content = document.createElement('div');
+                    
+                    button.className = 'collapsible';
+                    content.className = 'content';
+                    
+                    button.innerHTML = fancyDate;
+                    
+                    content.appendChild(createStartlistTable(data[date]));
+                    main.prepend(content);
+                    main.prepend(button);
+                }
             }
 
             header = document.createElement('h1');
             header.innerHTML = 'Startlistor';
             main.prepend(header);
 
-            var coll = document.getElementsByClassName("collapsible");
-            var i;
-
-            for (i = 0; i < coll.length; i++) {
-                coll[i].addEventListener("click", function () {
-                    this.classList.toggle("active");
-                    var content = this.nextElementSibling;
-                    if (content.style.display === "block") {
-                        content.style.display = "none";
-                    } else {
-                        content.style.display = "block";
-                    }
-                });
+            if (startListAvailable) {
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+                
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+            } else {
+                let p = document.createElement('p');
+                p.innerText = 'Det finns inga startlistor för nuvarande.';
+                main.appendChild(p);
             }
         });
     </script>
